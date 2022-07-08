@@ -1,0 +1,38 @@
+<html>
+    <head>       
+        <?php echo $__env->make('includes.printhead', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <style>
+            #print_body{
+                background-color: #FFFFFF !important;
+            }
+        </style>
+    </head>    
+    <body class="nav-md" id="print_body">
+        <div class="wrapper">
+            <div class="container-fluid body page">
+                <div class="main_container row"> 
+                    <!-- Header -->
+                    <!--/ Header -->
+
+                    <!-- Page Content -->
+                    <div class="container-fluid page-content" role="main">
+                        <div class="row questionnaire" >
+
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-12"><?php echo $__env->yieldContent('content'); ?></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!--/ Page Content -->
+
+                    <!-- Footer -->
+
+                    <!--/ Footer -->
+                </div>
+            </div>
+        </div>    
+    </body>
+</html>

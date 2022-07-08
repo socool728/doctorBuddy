@@ -1,0 +1,11 @@
+<p>Hi <?php echo $hp_name ?></p>
+<br>
+<p>
+ A new case file has been assigned to you ,in Doctorbuddy.com<br>
+ For more details,please click the link below.<br>
+</p>
+
+<p><a href="<?php echo $link ?>">View case file</a></p>
+<br><br>
+<p>Reagrds,<br/></p>
+<p><a href="http://doctorbuddy.com">Doctorbuddy.com</a><br/></p>

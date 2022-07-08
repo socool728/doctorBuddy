@@ -1,0 +1,98 @@
+<?php $__env->startSection('content'); ?>
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Security Question</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Edit Security Question <small></small></h2>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="x_content">
+                    <br></br>
+
+                  <form class="form-horizontal form-label-left" novalidate  method="post" >
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Security Question<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input data-parsley-id="3638" id="question" name="question" value="<?php echo $data['question'];?>" title="Security Question" required="required"  class="form-control col-md-7 col-xs-12" type="text"><ul id="parsley-id-3638" class="parsley-errors-list"></ul>
+                             <input name="question_id" type="hidden" value="<?php echo $data['question_id'];?>" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Display Order <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="form-control" name="display_order">
+                                <?php for($i=1;$i<50;$i++){ ?>
+                                <option value="<?php echo $i;?>" <?php if($data['display_order'] == $i){?>selected <?php } ?> ><?php echo $i;?></option> <?php } ?>
+                            </select>
+                            <ul id="parsley-id-3638" class="parsley-errors-list"></ul>
+                        </div>
+                    </div>
+
+                   <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Status <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="radio">
+                                <label>
+                                    <input <?php if($data['status'] == 1){?>checked="checked" <?php } ?>value="1" id="status" name="status" type="radio"> Enable</label><label>
+                                    <input <?php if($data['status'] == 0){?>checked="checked" <?php } ?> value="0" id="status" name="status" type="radio"> Disable</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <a href="../securityquestion"><button type="button" class="btn btn-primary">Cancel</button></a>
+                            <button type="submit" class="btn btn-success" name="update" id="update">Update</button>
+                        </div>
+                    </div>
+
+                </form>                   
+                 
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+    </div>
+</div>
+<script>
+$('form')
+    .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+    .on('change', 'select.required', validator.checkField)
+    .on('keypress', 'input[required][pattern]', validator.keypress);
+
+$('.multi.required')
+    .on('keyup blur', 'input', function () {
+        validator.checkField.apply($(this).siblings().last()[0]);
+    });
+    $('form').submit(function (e) {
+            e.preventDefault();
+            var submit = true;
+            // evaluate the form using generic validaing
+            if (!validator.checkAll($(this))) {
+                submit = false;
+            }
+
+            if (submit)
+                this.submit();
+            return false;
+        });
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.adminlayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

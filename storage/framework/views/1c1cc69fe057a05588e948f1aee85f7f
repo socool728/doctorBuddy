@@ -1,0 +1,59 @@
+<?php $__env->startSection('content'); ?>
+
+<h3>Contact Us</h3>
+
+<form action="javascript:void(0);" id="contactform" name="contactform" class="form-label-left" method="post"  role="form" >
+        <div class="col-lg-6 col-sm-6  col-sx-6 m-t-xl registration-wrap left no-pad">
+            <div id="message"  class="hide col-lg-12 col-sm-12 col-sx-12">
+                <div id="message-text"></div>
+            </div> 
+
+            <div class="col-lg-12 col-sm-12 col-sx-12 no-pad">
+                <div class="form-group col-lg-6 col-sm-6 col-sx-12 no-pad item right-pad">
+                    <label>Name</label> 
+                    <input  id="name" name="name"  required="required" title="Name" class="form-control" type="text">
+                </div>
+                <div class="form-group col-lg-6 col-sm-6 col-sx-12 no-pad  left-pad item">
+                    <label>Email</label> 
+                    <input  id="email" name="email"  title="Email" class="form-control" type="email" required="required">
+                </div>
+                
+            </div>
+           <div class="col-lg-12 col-sm-12 col-sx-12 no-pad">
+                <div class="form-group col-lg-6 col-sm-6 col-sx-12 no-pad item right-pad">
+                    <label>Subject</label> 
+                    <input  id="subject" name="subject"  required="required" title="Subject" class="form-control" type="text">
+                </div>           
+                <div class="form-group col-lg-6 col-sm-6 col-sx-12 no-pad item left-pad">
+                    <label>Message</label> 
+                    <textarea rows="6"  class="required form-control"  title="Message" id="message" name="message"></textarea>                   
+                 </div>               
+           </div>
+
+           <div class="col-lg-12 col-sm-12 col-sx-12 no-pad">
+               <div class="col-lg-12 col-sm-12 col-xs-12 no-pad text-right">
+                    <button type="submit"  onclick="return validate_contact();" title="Register"  class="btn btn-red" role="button">Submit</button> 
+                    <input type="hidden" name="form-submit" value="submit">
+               </div>   
+               
+           </div>
+        </div>                                    
+           <!--Contact address area-->
+    <?php $contentObj = DB::table('contents')->where('contents_key','=','contact-us')->first();
+     
+    if($contentObj){ ?>
+    <div class="col-lg-5 col-sm-6  col-sx-6 m-t-xl pull-right">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <span style="font-weight: 400;">Our office</span><div class="ln_solid"></div>
+        <?php echo $contentObj->contents_description;?>
+    </div>
+        <?php } ?>         
+    </form>    
+<script>
+    var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+<script src="<?php echo asset('js/home/contact-us.js'); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.generallayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

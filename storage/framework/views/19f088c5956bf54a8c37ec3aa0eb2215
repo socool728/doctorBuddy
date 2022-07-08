@@ -1,0 +1,8 @@
+<meta charset="UTF-8">
+<title>DoctorBuddy</title>
+<link href="<?php echo asset('css/layout/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo asset('css/layout/custom.css'); ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo asset('css/custom_extra.css'); ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo asset('css/animate.min.css'); ?>" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>

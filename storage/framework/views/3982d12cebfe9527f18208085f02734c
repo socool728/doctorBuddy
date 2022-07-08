@@ -1,0 +1,69 @@
+
+<?php
+$name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
+$filename = strtolower(basename($name, ".php"));
+?>
+<div class="container-fluid Tbg topwrap">
+	<div class="col-lg-12">
+<!--    	<ul class="topnav"><li><a href="#">DoctorBuddy</a></li><li><a href="#">ENGLISH</a></li></ul>-->
+        <ul class="right-d col-lg-6">
+            <?php if(Session::get('logined_user_displayname') != ''): ?> 
+                <li>Welcome <?php echo Session::get('logined_user_displayname') ?>,</li>
+            <?php endif; ?>
+                
+            <?php if(Session::get('customer_id')!='' || Session::get('counselor_id') !='' || Session::get('hp_id') !=''){?> 
+            <li class="logoff"><a href="<?php echo asset('home/logout');?>"><span>Logoff</span></a></li>
+            <?php } ?>
+<!--            <li class="searchbox col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-addon">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </span> 
+                </div>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<div class="container-fluid navbg">
+	<div class="col-lg-12 logowrap">
+    	<a class="logo"><img src="<?php echo asset('images/layout/logo.png');?>" width="100" height="123" alt="logo" /> </a>
+        <span onclick='window.location="<?php echo asset('home');?>"' class="cursor-pointer">
+            doctor<font>Buddy</font>.com
+        </span>
+    </div>
+  
+</div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+     <?php
+     $primaryMenus = DB::table('contents')->where('contents_position','=',1)->where('contents_status','=',1)->orderBy('display_order')->get();
+     ?>
+     <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+       <ul class="nav navbar-nav navbar-right">
+
+       
+       <li><a href="<?php echo asset('counselor/dashboard');?>">Counselors</a></li>
+       <li><a href="<?php echo asset('customer/dashboard');?>">Customers</a></li>
+       <li><a href="<?php echo asset('healthcare_professional/dashboard');?>">Providers</a></li>
+       <?php foreach ($primaryMenus as $primaryMenu){ ?>
+        <?php $contentLink = asset("home/contents/$primaryMenu->contents_id"); ?>
+            <li><a href="<?php echo $contentLink;?>"><?php echo $primaryMenu->contents_title ?></a></li>
+       <?php } ?>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,0 +1,386 @@
+@extends('layouts.adminlayout')
+@section('content')
+
+<?php 
+$hp = $data['hp']; 
+$languages = $data['languages']; 
+$specilizations = $data['specilizations']; 
+$insurances = $data['insurances']; 
+
+$selectedLanguages = $data['selectedLanguages'];
+$selectedInsurances = $data['selectedInsurances'];
+$selectedSpecilizations = $data['selectedSpecilizations'];
+
+?>
+<div class="">
+<!--    <div class="page-title">
+        <div class="title_left">
+            <h3>Add Customer</h3>
+        </div>
+    </div>-->
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Edit Provider <small></small></h2>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="x_content">
+
+                    <form action="javascript:edit_hp();" class="form-horizontal form-label-left" novalidate  method="post"  id="edit_hp_form">
+                        
+                        <div  class="col-md-12 col-sm-12 col-xs-12">
+                            <div id="message"  class="hide  col-md-12 col-sm-12 col-xs-12 m-b-lg">
+                                <div id="message-text"></div>
+                            </div>
+                            <?php if(Session::has('flash_msg')){?>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="alert alert-success" ><?php echo Session::get('flash_msg');?></div>
+                                </div>                               
+                            <?php } ?>                               
+                            <div  class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        First Name <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_first_name" name="healthcare_professional_first_name"  required="required" title="First Name" class="form-control" type="text" value="<?php echo $hp->healthcare_professional_first_name ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Middle Name 
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_middle_name" name="healthcare_professional_middle_name"   title="Middle Name" class="form-control" type="text" value="<?php echo $hp->healthcare_professional_middle_name ?>">
+                                    </div>
+                                </div>                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Last Name <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_last_name" name="healthcare_professional_last_name"  required="required" title="Last Name" class="form-control" type="text" value="<?php echo $hp->healthcare_professional_last_name ?>">
+                                    </div>
+                                </div>  
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Email<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input id="healthcare_professional_email_address" name="healthcare_professional_email_address" disabled="true" title="Email" class="form-control" type="email" value="<?php echo $hp->healthcare_professional_email_address ?>">
+                                    </div>
+                                </div>  
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Country <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <?php if(count($data['countries'])>0){ ?>
+                                            <select class="form-control required" name="healthcare_professional_country" title="Country"  id="healthcare_professional_country" onchange="javascript:getCountryState(this);">
+                                            <option value="" >Select Country</option>
+                                            <?php 
+                                            foreach($data['countries'] as $country){  ?>
+                                                <option value="<?php echo $country->country_id ;?>" phone_code="<?php echo $country->phoneCode ;?>" <?php if($hp->healthcare_professional_country==$country->country_id){ echo "selected" ;} ?>><?php echo $country->countryname;?></option>
+                                            <?php } ?>
+                                            </select>
+                                        <?php } ?> 
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        State <span class="required">*</span>
+                                    </label>
+                                    <div id="state_1" class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <select class="form-control required" name="healthcare_professional_state_select" title="State"  id="healthcare_professional_state_select"></select>
+                                    </div>
+                                    <div id="state_2" style="display:none" class="col-md-6 col-sm-6 col-xs-12 item "></div>                                    
+                                </div> 
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        City <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_city" name="healthcare_professional_city"   title="City" class="form-control"  type="text" required="required" value="<?php echo $hp->healthcare_professional_city ?>">
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Zip<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_zip_code" name="healthcare_professional_zip_code"  required="required" title="Zipcode" class="form-control"  maxlength="11"  type="text" value="<?php echo $hp->healthcare_professional_zip_code ?>">
+                                    </div>
+                                </div>                                  
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Phone <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 ">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 item no-padding">
+                                            <input id="healthcare_professional_phone_code" name="healthcare_professional_phone_code"  maxlength="13" required="required" title="code" class="form-control" type="text" value="<?php echo $hp->healthcare_professional_phone_code ?>"> 
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8 item left-padr0">
+                                            <input id="healthcare_professional_phone_number" name="healthcare_professional_phone_number"  max="9999999999999"  maxlength="13" required="required" title="Phone" class="form-control" type="number" value="<?php echo $hp->healthcare_professional_phone_number ?>"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Designation
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_designation" name="healthcare_designation"  title="Designation" class="form-control" type="text" value="<?php echo $hp->healthcare_designation ?>">
+                                    </div>
+                                </div>                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Nick Name
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_nickname" name="healthcare_professional_nickname"   title="Nick Name" class="form-control" type="text" value="<?php echo $hp->healthcare_professional_nickname ?>">
+                                    </div>
+                                </div>                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Organization
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_organization" name="healthcare_professional_organization"  title="Organization" class="form-control" type="text" value="<?php echo $hp->healthcare_professional_organization ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Profile
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <textarea  id="healthcare_professional_profile" rows="5" name="healthcare_professional_profile"  title="Profile" class="form-control"><?php echo $hp->healthcare_professional_profile ?></textarea>
+                                    </div>
+                                </div>                                
+                            
+                            </div>
+                            <div  class="col-md-6 col-sm-6 col-xs-12">
+
+                                <?php
+                                        if($hp->healthcare_professional_dob != '' && $hp->healthcare_professional_dob != '0000-00-00 00:00:00'){
+                                            $datetime = new DateTime();
+                                            $datetime = $datetime->createFromFormat('Y-m-d H:i:s', $hp->healthcare_professional_dob);
+                                            $dob = $datetime->format('m-d-Y');
+                                        }else{
+                                            $dob ="";
+                                        }
+                                ?>           
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Date Of Birth
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_dob" name="healthcare_professional_dob"   title="Date Of Birth" class="form-control" type="text" value="<?php echo $dob ?>" readonly="true">
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Fees
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_fees" name="healthcare_professional_fees"   title="Fees" class="form-control" type="text" value="<?php echo $hp->healthcare_professional_fees ?>">
+                                    </div>
+                                </div>                                
+                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Introduction
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <textarea id="healthcare_professional_introduction" rows="3" name="healthcare_professional_introduction" class="form-control"><?php echo $hp->healthcare_professional_introduction?></textarea>
+                                    </div>
+                                </div>                                
+                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Languages
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <select multiple="true" name="language_id[]" id="language_id" title="Languages" class="form-control">
+                                            <?php foreach ($languages as $language):?>
+                                                 <?php 
+                                                    $selected ='';
+                                                    if(in_array($language->language_id, $selectedLanguages)){
+                                                        $selected ='selected="selected"';
+                                                    }
+                                                 ?>
+                                            <option value="<?php echo $language->language_id ?>" <?php echo  $selected ?> ><?php echo ucfirst($language->language_name) ?></option>
+                                            <?php endforeach ; ?>
+
+                                        </select> 
+                                    </div>
+                                </div>                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Insurance
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <select multiple="true" name="insurance_id[]" id="insurance_id" title="Insurances" class="form-control">                                
+                                            <?php foreach ($insurances as $insurance):?>
+                                                <?php 
+                                                    $selected ='';
+                                                    if(in_array($insurance->insurance_id, $selectedInsurances)){
+                                                        $selected ='selected="selected"';
+                                                    }
+                                                 ?>
+
+                                                <option value="<?php echo $insurance->insurance_id ?>" <?php echo  $selected ?> ><?php echo ucfirst($insurance->insurance_name) ?></option>
+                                            <?php endforeach ; ?>
+
+                                        </select>                                        
+                                    </div>
+                                </div> 
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Specilizations
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <select multiple="true" name="specilization_id[]" id="specilization_id" title="Specilizations" class="form-control">
+                                             <?php foreach ($specilizations as $specilization):?>
+                                                     <?php 
+                                                     $selected ='';
+                                                     if(in_array($specilization->specilization_id, $selectedSpecilizations)){
+                                                         $selected ='selected="selected"';
+                                                     }
+                                                  ?>
+
+                                                 <option value="<?php echo $specilization->specilization_id ?>" <?php echo  $selected ?> ><?php echo ucfirst($specilization->specilization_name) ?></option>
+                                             <?php endforeach ; ?>
+                                        </select>                                       
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 no-pad item right-pad">
+                                        <div id="files_biodata" class="files">
+
+                                            <div class="col-md-6  " style="margin-top:2%;">
+                                                 <?php if($hp->healthcare_professional_biodata !=''): ?>
+                                                <div class="col-md-9">
+                                                 <a href="<?php echo $data['site_url'].'/uploads/healthcare_professional/'.$hp->healthcare_professional_biodata ?>">
+                                                     <?php echo $hp->healthcare_professional_biodata ?>
+                                                 </a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a  onclick="remove_stored_biodata()" href="javascript:void(0);"> 
+                                                         <img src="<?php echo asset('images/delete.png'); ?>">
+                                                    </a></div>
+                                                 <?php endif ?>
+                                            </div>
+                                            <div class="col-md-6  ">
+                                                 <span class="btn btn-red fileinput-button">
+                                                     <span  class="btn btn-red fileinput-button"><i class="glyphicon glyphicon-plus"></i>Upload Biodata <input id="fileupload_biodata" type="file" name="files"  /></span>  
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div id="upfiles_biodata" class="files"></div>
+                                        <input type="hidden" name="document_biodata" id="document_biodata" value="">  
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 no-pad item left-pad">
+                                        <div id="files_image" class="files">
+                                            <div class="col-md-6  " style="margin-top:2%;">
+                                               <?php if($hp->healthcare_professional_image !=''): ?>
+                                                <div class="col-md-9">
+                                                 <img src="<?php echo $data['site_url'].'/uploads/healthcare_professional/thumbnail/'.$hp->healthcare_professional_image ?>">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a  onclick="remove_stored_image()" href="javascript:void(0);">
+                                                        <img src="<?php echo asset('images/delete.png'); ?>">
+                                                    </a></div>
+                                                <?php endif ?> 
+                                            </div>
+                                            <div class="col-md-6  ">
+                                                 <span class="btn btn-red fileinput-button">                                                           
+                                                     <span  class="btn btn-red fileinput-button"><i class="glyphicon glyphicon-plus"></i>Upload Image<input id="fileupload_image" type="file" name="files"  /></span>                                                            
+                                                </span>
+                                            </div>                                            
+
+                                        </div>
+                                        <div id="upfiles_image" class="files"></div>
+                                        <input type="hidden" name="document_image" id="document_image" value="">
+                                    </div>                                     
+                                </div>                               
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Password
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input id="healthcare_professional_password" name="healthcare_professional_password"  title="Password" class="form-control" type="password">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" >
+                                        Repeat Password
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 item ">
+                                        <input  id="healthcare_professional_password2"   name="healthcare_professional_password2"   title="Repeat Password" class="form-control"  type="password">
+                                    </div>
+                                </div>                            
+                            </div>
+                            <div  class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="ln_solid"></div>
+                                <div class="form-group text-right">
+                                        <a href="<?php echo $data['site_url'] ?>/admin/healthcareprofessional">
+                                            <button type="button" class="btn btn-primary" name="cancel" id="cancel">Cancel</button>
+                                        </a>
+                                        <button type="submit" class="btn btn-success" name="add" id="add" href="edit_hp">Save</button>
+                                        <input type="hidden" name="form_submit" value="save">                                
+                                </div>
+                            </div>                             
+                            
+                        </div>    
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+    </div>
+</div>
+<script>
+    var hpId = "<?php echo $data['hpId'] ?>";
+    var countryId = "<?php echo $hp->healthcare_professional_country ?>";
+    var stateName = "<?php echo $hp->healthcare_professional_state?>";
+    var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+
+<link rel="stylesheet" href="<?php echo asset('css/jquery.fileupload.css');?>" />
+<script src="<?php echo asset('js/vendor/jquery.ui.widget.js');?>"></script>
+<script src="<?php echo asset('js/jquery.iframe-transport.js');?>"></script>
+<script src="<?php echo asset('js/jquery.fileupload.js');?>"></script>
+<script src="<?php echo asset('js/admin/hp_image_biodata_upload.js');?>"></script>
+<script src="<?php echo asset('js/admin/edit_hp.js'); ?>"></script>
+
+@stop

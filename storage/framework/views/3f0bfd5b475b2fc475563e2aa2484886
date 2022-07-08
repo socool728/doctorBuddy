@@ -1,0 +1,14 @@
+ <p>Hi <?php echo $hp_name ?></p>
+<br>
+<p>
+ <?php echo $customer_nick_name ?> made a comment on your assigned case file.<br>
+ Please see the comments submitted by the customer by clicking the link below.<br>
+</p>
+<br>
+<p><a href="<?php echo $link ?>">view comments</a></p>
+<br>
+<p><i>"<?php echo $customer_comment ?>"</i></p>
+
+<br><br>
+<p>Reagrds,<br/></p>
+<p><a href="http://doctorbuddy.com">Doctorbuddy.com</a><br/></p>

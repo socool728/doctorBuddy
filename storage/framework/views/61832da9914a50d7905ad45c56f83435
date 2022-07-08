@@ -1,0 +1,33 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="row" id="paypal_form_div"></div>
+<script>
+ var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+<script>
+function make_paypal_form (encodedCasefileToHPId){
+    alert(encodedCasefileToHPId);
+    
+         $.ajax({
+        type: "POST",    
+        data: "encodedCasefileToHPId ="+encodedCasefileToHPId,
+        url :SITE_URL+"/customer/ajaxpaypalformcreation",
+        success : function(response) {            
+            $("#paypal_form_div").html(response);  
+            $("#paypal_form").submit();
+        },
+        error : function(){
+ 
+        $("#openion-message-text").html('<i class="fa-fw fa fa-times"></i><strong>Error!</strong> Something went wrong, please try again.');
+        $("#openion-message").removeClass('hide');
+        $("#openion-message").addClass('alert alert-danger');
+        },
+        });   
+}
+
+</script>
+
+<a onclick="make_paypal_form(5);">Paypal</a>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.customerlayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

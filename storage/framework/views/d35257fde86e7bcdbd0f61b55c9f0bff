@@ -1,0 +1,39 @@
+ <p>Hi <?php echo $customerNickName ?></p>
+<br>
+<p>
+ <?php echo $hpName ?> send a treatment plan for your submitted case file.<br>
+ Please see the treatment plans submitted by the doctors by clicking the link below.<br>
+ <?php if($reduction>0): ?>
+ <?php echo $hpName ?> offered the services with ( <?php echo $reduction ?>%)reduction as you are a client from doctorbuddy.
+ <?php endif;?>
+</p>
+<br>
+<p><a href="<?php echo $link ?>">Treatment Plan</a></p>
+<br>
+<p><?php echo $introduction ?></p>
+<br>
+
+<p><?php echo $treatmentPlan ?></p>
+
+<?php if(count($templates) >0){  ?>
+<?php foreach($templates as $template){ ?>
+<br>
+<div>
+    <?php echo $template['template_text'] ?>
+</div>
+<?php } ?>
+<?php } ?>
+
+<?php if($total >0) : ?>
+<br>
+<p><b>Price Details</b></p>
+<p>Regular Price : <?php echo $regularPrice ?> &nbsp;<?php echo $currency ?></p>
+<p>Reduction : <?php echo $reduction ?>%</p>
+<p>Tax : <?php echo $tax ?>%</p>
+<p>Total : <?php echo $total ?>&nbsp; <?php echo $currency ?></p>
+
+<?php endif;?>
+
+<br><br>
+<p>Reagrds,<br/></p>
+<p><a href="http://doctorbuddy.com">Doctorbuddy.com</a><br/></p>

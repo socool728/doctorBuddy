@@ -1,0 +1,74 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="col-lg-12">
+<?php echo $__env->make('healthcare_professional.dashboardmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="col-lg-12">
+    <form action="javascript:void(0);" id="template_form" name="template_form"  method="post"  role="form" >
+        <div class="ibox float-e-margins">
+            
+            <div id="custom_message_wrapper">    
+                <div id="message"  class="hide">
+                    <div id="message-text"></div>
+                </div>
+                 <?php if(Session::get('flash_msg')) : ?>
+                <div class="success-alert"><?php echo Session::get('flash_msg') ?></div>
+                <?php endif ;?>
+            </div>
+            
+            <div class="ibox-title">
+                <h3>Edit Template</h3>
+            </div>
+            <div class="ibox-content">
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <div class="form-group item">
+                            <label>Title</label> 
+                            <input  id="template_title" name="template_title"  required="required" title="Title" class="form-control" type="text" value="<?php echo $templateObj->template_title ?>">
+                        </div>  
+              
+                    </div>                   
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">                       
+                        <div class="form-group item">
+                            <label>Content</label> 
+                            <textarea  id="template_text" name="template_text"  required="required" title="Text" class="form-control" ><?php echo $templateObj->template_text ?></textarea>
+                        </div>  
+              
+                    </div>                   
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12">                       
+                        <div class="form-group item">
+                            <label>Status</label> 
+                            <select  class="form-control" name="status">
+                                <option value="1" <?php if($templateObj->status ==1){ echo "selected" ;} ?>>Active</option>
+                                <option value="0" <?php if($templateObj->status ==0){ echo "selected" ;} ?>>In Active</option>
+                            </select>
+                        </div>  
+              
+                    </div>                   
+                </div> 
+                <div class="col-lg-12 text-right">
+                     <button  onclick="return edit_template();" type="button"  title="Save"  class="btn btn-primary" role="button">Save</button>
+                     <input type="hidden" name="form_submit" value="save">
+                     <input type="hidden" name="template_id" id="template_id" value="<?php echo $templateObj->healthcare_professional_template_id ?>">
+                </div>
+            </div>
+                                   
+                                 
+        </div>
+    </form>
+</div>
+</div>
+
+<script>
+ var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+<script src="<?php echo asset('js/healthcare_professional/templates.js'); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.customerlayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

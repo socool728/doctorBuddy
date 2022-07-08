@@ -1,0 +1,6 @@
+<h3>Dear <?php echo $name ?></h3>
+<p>We have received a request to reset the password associated with this e-mail address. 
+ </br>Your new  password : <?php echo $rand_pwd ?></p>
+<br><br>
+<p>Thanks</p>
+<a href="<?php echo $site_link ?>">Doctorbuddy.com</a></p>

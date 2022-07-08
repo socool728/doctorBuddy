@@ -1,0 +1,19 @@
+<?php $__env->startSection('content'); ?>
+<div class="cd-main-header">		
+    <a class="cd-nav-trigger" href="#0">
+        <span></span>
+    </a>		
+</div>
+<main class="cd-main-content">
+    <?php echo $__env->make('customer.dashboardmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php $report = $reportsArr[0]; ?>   
+    <div class="content-wrapper col-lg-10 col-sm-10 col-xs-12">
+        <?php echo $__env->make('customer.common_casefile_view', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </div>
+</main>
+
+
+
+<script src="<?php echo asset('js/customer/report.js'); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.customerlayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

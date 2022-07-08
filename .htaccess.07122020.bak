@@ -1,0 +1,40 @@
+#<IfModule mod_rewrite.c>
+#    <IfModule mod_negotiation.c>
+#        Options -MultiViews
+#    </IfModule>
+#
+#    RewriteEngine On
+#
+#    # Redirect Trailing Slashes...
+#    RewriteRule ^(.*)/$ /$1 [L,R=301]
+#
+#    # Handle Front Controller...
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^ index.php [L]
+#</IfModule>
+
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} !(\.ufm|\.html|\.ttf|\.woff|\.css|\.js|\.png|\.jpg|\.gif|\.pdf|\.php|robots\.txt)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(fonts|css|js|images)/(.*)$ public/$1/$2 [L,NC]
+RewriteRule ^public/index.php/(.*)$ /$1 [L,R=301,QSA]
+
+
+

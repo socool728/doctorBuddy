@@ -1,0 +1,29 @@
+<?php $__env->startSection('content'); ?>
+
+<?php 
+$report = $data['report']; 
+?>
+<div class="cd-main-header">		
+    <a class="cd-nav-trigger" href="#0">
+        <span></span>
+    </a>		
+</div>
+<main class="cd-main-content">
+    <?php echo $__env->make('counselor.dashboardmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <div class="content-wrapper col-lg-10 col-sm-10 col-xs-12">
+        
+        <?php if(Session::get('error_message')): ?>
+            <div class=" alert alert-danger col-lg-12 col-sm-12 col-xs-12">
+                <div ><?php echo Session::get('error_message') ?></div>
+            </div>
+        <?php else: ?>
+        
+        <?php echo $__env->make('customer.common_casefile_view', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>             
+        <?php endif; ?>
+    </div>
+</main>    
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.counselorlayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

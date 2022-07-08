@@ -1,0 +1,8 @@
+hello
+first .env file exchange
+second install xampp-win32-5.5.34-0-VC11-installer
+
+
+
+If you have any question, in this link....
+https://join.slack.com/t/blk-developers/shared_invite/zt-1ak8x24wm-vIMrApqNXWwvUcBJWk26Zg

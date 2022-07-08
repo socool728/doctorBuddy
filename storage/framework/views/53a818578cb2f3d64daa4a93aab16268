@@ -1,0 +1,138 @@
+<?php $__env->startSection('content'); ?>
+
+<?php $hpObjects = $data['hpObjects'];  //echo '<pre>';print_r($hpObjects)?>
+
+<h3>Provider Listing</h3>
+
+<?php if(Session::has('flash_msg')): ?>
+<div class="col-lg-2 col-sm-2  col-xs-2" >   
+</div>
+<div class="col-lg-8 col-sm-8  col-xs-8 no-pad alert alert-danger text-center" >
+    <?php echo Session::get('flash_msg') ?>    
+</div>
+<div class="col-lg-2 col-sm-2  col-xs-2" >   
+</div>
+<?php endif;?>
+
+<div class="col-lg-12 col-sm-12  col-xs-12 no-pad">
+
+    <?php $i =0 ;?>
+    <div class="row">
+        <?php foreach ($hpObjects as $hpObject) : ?>
+            <?php ++$i ?>
+        
+            <div class="col-lg-6 col-sm-6 col-xs-6 m-b">
+            <div class="hp-listing-outer">
+            <div class="col-lg-12  col-sm-12  col-xs-12 "><br></div>
+            <div class="col-lg-3 col-sm-3 col-xs-3">
+                <a href="<?php echo asset('healthcare_professional/details/'.$hpObject->healthcare_professional_id) ?>">
+                <?php if(isset($hpObject->healthcare_professional_image) && $hpObject->healthcare_professional_image !='') : ?>
+                    <img src="<?php echo asset("uploads/healthcare_professional/thumbnail")."/".$hpObject->healthcare_professional_image ?>" width="80" height="80">
+                <?php else: ?>
+                    <img src="<?php echo asset("public/images")."/user.png"?>" width="80" height="80"> 
+                <?php endif ;?>
+                </a>    
+            </div>
+            <div class="col-lg-5  col-sm-5  col-xs-5 ">
+                <div class="col-lg-12  col-sm-12  col-xs-12 ">
+                    <?php
+                    $nameArr=array();
+                    if(isset($hpObject->healthcare_professional_first_name) && $hpObject->healthcare_professional_first_name !='') {
+                     $nameArr[] = $hpObject->healthcare_professional_first_name;
+                    }
+                    if(isset($hpObject->healthcare_professional_middle_name) && $hpObject->healthcare_professional_middle_name !='') {
+                     $nameArr[] = $hpObject->healthcare_professional_middle_name;
+                    }
+                    if(isset($hpObject->healthcare_professional_last_name) && $hpObject->healthcare_professional_last_name !='') {
+                     $nameArr[] = $hpObject->healthcare_professional_last_name;
+                    }
+
+                    ?>
+                    <a  href="<?php echo asset('healthcare_professional/details/'.$hpObject->healthcare_professional_id) ?>">
+                        <b><?php  echo ucfirst(implode(" ", $nameArr)); ?></b>
+                    </a>
+                </div> 
+
+                <div  class="col-lg-12 col-sm-12  col-xs-12  hp-listing-designation">
+                    <?php
+                    $desArr=array();
+                    if(isset($hpObject->healthcare_designation) && $hpObject->healthcare_designation !=""){
+                        $desArr[] = $hpObject->healthcare_designation;
+                    }
+                    if(isset($hpObject->healthcare_professional_organization) && $hpObject->healthcare_professional_organization !=""){
+                        $desArr[] = $hpObject->healthcare_professional_organization;
+                    }
+                    echo ucfirst(implode(",", $desArr));
+                    ?>
+                </div>
+
+                <div  class="col-lg-12  col-sm-12  col-xs-12 ">
+                    Phone & Email : <a href="javascript:void(0);">Contact</a>
+                </div>
+
+                <div  class="col-lg-12  col-sm-12  col-xs-12 ">
+                  <?php 
+                  $addressArr =array();
+
+                   if(isset($hpObject->healthcare_professional_city) && $hpObject->healthcare_professional_city !=""){
+                        $addressArr[]= $hpObject->healthcare_professional_city;
+                    }
+
+                   if(isset($hpObject->healthcare_professional_state) && $hpObject->healthcare_professional_state !=""){
+                        $addressArr[]= $hpObject->healthcare_professional_state;
+                    }
+
+                   if(isset($hpObject->countryname) && $hpObject->countryname !=""){
+                        $addressArr[]= $hpObject->countryname;
+                    }                                        
+                    echo implode(",", $addressArr);
+                    ?> 
+                </div>                                    
+                <div class="col-lg-12  col-sm-12  col-xs-12 ">
+                  <?php  
+                   if(isset($hpObject->healthcare_professional_zip_code) && $hpObject->healthcare_professional_zip_code !=""){
+                        echo $hpObject->healthcare_professional_zip_code;
+                    } 
+                   ?> 
+                </div>
+                <div  class="col-lg-12 col-sm-12 col-xs-12  margin-bottom-20">
+                    <?php
+                    if(isset($hpObject->healthcare_professional_profile) && $hpObject->healthcare_professional_profile !=""){
+                        echo $hpObject->healthcare_professional_profile;
+                    } 
+                    ?>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-4">
+                <div class="col-lg-12 hp-listing-cost ">
+                    <?php
+                     if(isset($hpObject->healthcare_professional_fees) && $hpObject->healthcare_professional_fees !=""){
+                        echo "<b>Cost</b> : $".$hpObject->healthcare_professional_fees;
+                     }
+                     ?>
+
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+            <?php 
+            if($i%2 ==0)
+            { 
+                echo "</div><div class='row'>";
+            }
+            ?>
+
+        <?php endforeach;?>
+    </div>                        
+                          
+</div>
+    
+
+
+<script>
+    var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.healthcarelayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

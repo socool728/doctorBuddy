@@ -1,0 +1,11 @@
+<p>Hi <?php echo $hp_name ?></p>
+<br>
+<p>
+ Doctorbuddy.com  has been approved your Provider account.<br>
+ For login,please click the link below.<br>
+</p>
+
+<p><a href="<?php echo $link ?>">Provider Login</a></p>
+<br><br>
+<p>Reagrds,<br/></p>
+<p><a href="http://doctorbuddy.com">Doctorbuddy.com</a><br/></p>

@@ -1,0 +1,83 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="">
+    <div class="clearfix"></div>
+
+    <div class="row">
+            <?php if(Session::has('flash_msg')){?>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="alert alert-success" ><?php echo Session::get('flash_msg');?></div>
+                </div>                               
+            <?php } ?>
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    
+                    <h3 class="pagehd">Counselors</h3>
+                    <div class="clearfix">  </div>
+                    
+                </div>
+                <div class="x_content">
+                    <table id="example" class="table table-striped responsive-utilities jambo_table">
+                        <thead>
+                            <tr class="headings">
+                                <th>SL No.</th>    
+                                <th>Counselor Email</th>
+                                <th>Counselor Name</th>                                
+                                <th>Added Date</th>
+                                <th>Detail View</th>
+                                <th>Status</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php 
+                            $i = 0;
+                            foreach($counselors as $counselor){ 
+                            ?>
+
+                                <tr class="even pointer">
+                                    <td class=" "><?php echo ++$i?></td>
+                                    <td class=" "><?php echo $counselor->counselors_email_id;?></td>
+                                    <td class=" "><?php echo $counselor->counselors_firstname." ".$counselor->counselors_lastname; ?></td> 
+                                    <td class=" "><?php echo $counselor->created_at; ?></td>   
+                                    <td class=" "><a href="../admin/viewcounselor/<?php echo $counselor->counselors_id?>"><button type="button" class="btn btn-primary">View</button></a></td>                                    
+                                    <td><?php if($counselor->counselors_status==3){ ?>
+                                        <a href="../admin/approve-counselor/<?php echo $counselor->counselors_id?>" onclick="return confirm('Are you sure to approve this Counselor?')">
+                                            <button type="button" class="btn btn-primary">Approve</button>
+                                        </a> 
+                                        <?php }elseif($counselor->counselors_status==2 && $counselor->email_verify==0){ ?>
+                                        Email Not verified
+                                        <?php }elseif($counselor->counselors_status==1){ ?>
+                                        Approved
+                                        <?php }elseif($counselor->counselors_status==0){ ?>
+                                        In Active
+                                        <?php } ?>
+                                    </td>
+                                    <td>
+                                     <button delete_id ="<?php echo e($counselor->counselors_id); ?>" type="button" class="btn btn-delete">Delete</button>  
+                                    </td>                                    
+                                   
+                                </tr>   
+                            <?php } ?>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+    </div>
+</div>
+<script>
+ var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+<script src="<?php echo asset('js/admin/list_counselor.js'); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.adminlayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

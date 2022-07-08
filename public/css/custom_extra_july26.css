@@ -1,0 +1,528 @@
+
+.cursor-pointer{
+    cursor:pointer;    
+}
+.alertuck {
+/*    float: left;*/
+    margin: 10px 0 0 20px;
+    padding: 3px 10px;
+    color: #FFF;
+    border-radius: 3px 4px 4px 3px;
+    background-color: #CE5454;
+    max-width: 322px;
+    white-space: pre;
+    position: relative;
+    left: -15px;
+    z-index: 1;
+    transition: 0.15s ease-out;
+     text-align: center;
+     display:none;
+}
+#upload_doc {
+    background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+   /* text-decoration: none;
+    cursor: poiner;
+     border:none;
+     padding: 6px;*/
+}
+.homelog_graph {
+/*    background: #fff;*/
+    padding: 7px 10px;
+    width: 60%;
+    margin: auto;
+}
+#loginform {
+    padding: 5px;
+    margin: 5px;
+}
+.frm-lgroup {
+   width:100%;
+   clear:both; 
+   margin:10px;
+   padding:10px;
+   font-size:14px;
+}
+.lfrm {
+    margin:auto;
+}
+.alertlchk {
+/*    float: left;*/
+    margin: 10px 0 0 20px;
+    padding: 3px 10px;
+    color: #FFF;
+    border-radius: 3px 4px 4px 3px;
+    background-color: #CE5454;
+    max-width: 600px;
+    white-space: pre;
+    position: relative;
+    left: -15px;
+    z-index: 1;
+    transition: 0.15s ease-out;
+     text-align: center;
+     display:none;
+     margin:auto;
+     font-size:15px;
+}
+.error-alert {
+    margin: 10px 0 0 20px;
+    padding: 10px 10px;
+    color: #FFF;
+    border-radius: 3px 4px 4px 3px;
+    background-color: #CE5454;
+    position: relative;
+    z-index: 1;
+    transition: 0.15s ease-out;
+    text-align: center;
+    margin:20px 0px;
+    font-size:15px;
+}
+.warning-alert {
+    margin: 10px 0 0 20px;
+    padding: 10px 10px;
+    color: #FFF;
+    border-radius: 3px 4px 4px 3px;
+    background-color: rgba(243, 156, 18, 0.88);
+    position: relative;
+    z-index: 1;
+    transition: 0.15s ease-out;
+    text-align: center;
+    margin:20px 0px;
+    font-size:15px;
+}
+
+.error-alert-messages {
+    text-align:left;
+}
+.lnkbtnajx {
+    cursor: pointer;
+    color:#73879C; 
+    font-style: italic;
+}
+#del_doc {
+    color:#CE5454;
+}
+.frm-lgroup .control-label {
+    text-align:center !important;
+    padding-top: 5px;
+    font-size:15px;
+}
+#loginform .frm-lgroup .control-label {
+    text-align:left !important;
+   
+}
+#loginform h1 {
+    margin:auto;
+    text-align:center !important;
+}
+.alertsucc {
+    margin: 10px 0 0 20px;
+    padding: 3px 10px;
+    color: #FFF;
+    border-radius: 3px 4px 4px 3px;
+    background-color: #00BB00;
+    max-width: 600px;
+    white-space: pre;
+    position: relative;
+    left: -15px;
+    z-index: 1;
+    transition: 0.15s ease-out;
+     text-align: center;
+     margin:auto;
+     font-size:15px;
+}
+
+.success-alert {
+    /*margin: 10px 0 0 20px;*/
+    padding: 10px 10px;
+    border-radius: 3px 4px 4px 3px;
+    position: relative;
+    z-index: 1;
+    transition: 0.15s ease-out;
+    text-align: center;
+   /* margin:20px 0px;*/
+    font-size:15px;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+.delete_link{
+    color:red;
+}
+#custom_message_wrapper{
+min-height: 50px;
+}
+
+.no-margin{
+    margin:0px !important;
+}
+
+.margin-top-20{
+    margin-top:20px !important;
+}
+.margin-bottom-20{
+    margin-bottom:20px !important;
+}
+
+
+
+/* START:listing of HP,Counselors */
+.counselor-listing-outer,.hp-listing-outer{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width:100%;
+    float:left;
+	padding-top:25px;
+	min-height:260px;
+ }
+ .counselor-listing-name,.hp-listing-name{
+     background-color: green;
+     color:#FFFFFF;
+     font-weight:bold;
+     padding:2px;
+ }
+ .counselor-listing-profile, .counselor-listing-cost,.hp-listing-profile, .hp-listing-cost {
+     color:red;
+ }
+ .counselor-listing-designation,.hp-listing-designation{
+     color:grey;
+ }
+     
+.hp-listing-outer > a {
+    display: block;
+}
+ /* END:listing of HP,Counselors */
+
+ 
+/* START:listing of HP comments */
+    .hp-comments-heading{
+        color:#5a738e;
+        font-weight:bold;
+    }
+    .hp-comments-label{
+        color:#5a738e;
+    }
+    .no-records{
+        color:red;
+    }
+
+/* END:listing of HP comments */
+
+
+
+
+/* START: alerts (when validation fails) */
+.bad input,
+.bad select,
+.bad textarea {
+    border: 1px solid #CE5454;
+    box-shadow: 0 0 4px -2px #CE5454;
+    position: relative;
+    left: 0;
+    -moz-animation: .7s 1 shake linear;
+    -webkit-animation: 0.7s 1 shake linear;
+}
+
+
+.item input,
+.item textarea {
+    -webkit-transition: 0.42s;
+    -moz-transition: 0.42s;
+    transition: 0.42s;
+}
+.item .alert {
+/*    float: left;*/
+/*    margin: 0 0 0 20px;*/
+    padding: 3px 10px;
+    color: #FFF;
+    border-radius: 3px 4px 4px 3px;
+    background-color: #CE5454;
+/*    max-width: 170px;*/
+    white-space: pre;
+    position: relative;
+    left: -15px;
+    opacity: 0;
+    z-index: 1;
+    transition: 0.15s ease-out;
+}
+
+.item .alert::after {
+/*    content: '';*/
+    display: block;
+    height: 0;
+    width: 0;
+    border-color: transparent #CE5454 transparent transparent;
+    border-style: solid;
+    border-width: 11px 7px;
+    position: absolute;
+    left: -13px;
+    top: 1px;
+}
+
+.item.bad .alert {
+    left: 0;
+    opacity: 1;
+}
+
+/* END: alerts (when validation fails) */
+
+/* START: Right Over lay */
+.text-wrap {
+    background-color: #73879c;
+    border: 1px solid #394f68;
+    border-radius: 5px;
+    float: left;
+    margin-top: -57px;
+    max-height: 600px;
+    min-height: 200px;
+    overflow-y: scroll;
+    padding: 10px;
+    width: 297px;
+}
+.style-toggle {
+    background: #495f76 url("../images/setting.png") no-repeat scroll center center;
+    border-radius: 5px 0 0 5px;
+    box-shadow: -3px 0 5px -2px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    float: left;
+    height: 56px;
+    margin-left: -57px;
+    margin-top: 14px;
+    opacity: 1;
+    top: 100px;
+    width: 57px;
+}
+.leftsidebar::before {
+    color: #000;
+    content: "";
+    font-family: fontawesome;
+    font-size: 23px;
+    font-weight: lighter !important;
+    line-height: 56px;
+    padding-left: 7px;
+    text-align: center;
+}
+.active1 {
+    animation-name: slideInRight;
+    margin-right: 30px;
+}
+.leftsidebar {
+    position: fixed;
+    right: 0px;
+    top: 0;
+    transform: translateX(266px);
+    transition: all 0.5s ease-in-out 0s;
+    width: 267px;
+    z-index: 100;
+}
+
+.reportdv {
+    width:100%;
+    clear:both;
+}
+@media only screen and (max-width: 821px) {
+    .leftsidebar {
+           position: absolute;
+    right: 30px;
+    }
+}
+
+/* END: Right Over lay */
+
+/* START: Symptom ajax drop down and its right side */
+
+
+
+
+
+.added-symptoms {
+    background: #d1d1d1 none repeat scroll 0 0;
+    margin: 25px 0 0;
+    padding: 15px;
+}
+.added-symptoms .lblsympt {
+    color: #ffffff;
+/*    color: #1d71b7;
+    font-weight: bold;*/
+    float: none;
+    margin: 15px 0;
+}
+.added-symptoms .rate_widget {
+    position: relative;
+}
+.added-symptoms h4 {
+	font-weight: bold;
+}
+
+[data-tooltip]::before {
+    background-color: hsla(0, 0%, 20%, 0.9);
+    border-radius: 3px;
+    bottom: 150%;
+    color: #fff;
+    content: attr(data-tooltip);
+    font-size: 14px;
+    left: 50%;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    position: absolute;
+    text-align: center;
+    width: 160px;
+}
+
+[data-tooltip]::before, [data-tooltip]::after {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+[data-tooltip]::after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    bottom: 150%;
+    content: " ";
+    font-size: 0;
+    left: 50%;
+    line-height: 0;
+    margin-left: -5px;
+    position: absolute;
+    width: 0;
+}
+[data-tooltip]::before, [data-tooltip]::after {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+[data-tooltip] {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.ratings_stargreen {
+    background: rgba(0, 0, 0, 0) url("../images/plusgreen.png") no-repeat scroll 0 0;
+    float: left;
+    height: 24px;
+    padding: 2px;
+    width: 24px;
+}
+.ratings_stars {
+    background: rgba(0, 0, 0, 0) url("../images/plusgn.png") no-repeat scroll 0 0;
+    float: left;
+    height: 24px;
+    padding: 2px;
+    width: 24px;
+}
+.ratings_vote {
+    background: url('../images/plusr.png') no-repeat;
+}
+.ratings_over {
+    background: url('../images/pluso.png') no-repeat;
+}
+.ratings_stars:hover {
+    cursor:pointer;
+}
+.ratings_plus {
+    background: url('../images/plusgn.png') no-repeat;
+    float:      left;   
+    padding:    2px;
+    height:     24px;
+    width:      24px;
+}
+.plus_vote {
+    background: url('../images/plusr.png') no-repeat;
+}
+.plus_over {
+    background: url('../images/pluso.png') no-repeat;
+}
+.ratings_stars:hover {
+    cursor:pointer;
+}
+
+.lblbth {
+    clear: both;
+}
+.ajsympt {
+    font-size: 14px !important;
+}
+
+/* END: Symptom ajax drop down and its right side */
+
+/* START: Pdf Report of casefile */
+.x_panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 17px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    opacity: 1;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.x_title {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px 5px 6px;
+    margin-bottom: 10px;
+}
+.ln_solid {
+    border-top: 1px solid #e5e5e5;
+    color: #ffffff;
+    background-color: #ffffff;
+    height: 1px;
+    margin: 20px 0;
+}
+#overlay .reportdv .col-lg-5 {
+    padding-right: 2px !important;
+    padding-left: 0px !important;
+}
+#overlay .reportdv .col-lg-4 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+#overlay .reportdv .col-lg-3 {
+    padding-right: 0px !important;
+    padding-left: 2px !important;
+}
+/* END: Right Over lay */
+/* customer name & logout on Top */
+.right-d li { 
+    padding-top: 5px;
+}
+/* customer name & logout on Top */
+/*  HP search */
+.symptomtag Ul {
+    display: inherit;
+}
+#resultdiv .col-lg-12 {
+    padding: 0px !important;
+}
+/* END: HP search */
+
+/* START: Conversation history */
+.c_h_rows{
+    border:1px solid gray;
+    border-radius:10px;
+    font-size: 13px !important;
+}
+
+/* END: Conversation history */
+
+/* START: Report page */
+.list-casefile {
+   /* border-bottom: 1px solid #ddd;*/
+    padding-bottom: 5px;
+    padding-top: 5px;
+	padding-left:0;
+}
+/* END: Report page */

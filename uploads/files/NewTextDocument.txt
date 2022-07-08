@@ -1,0 +1,70 @@
+<!--[if IE 6]>
+<html id="ie6" class="ie"<?php language_attributes() ?> xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7"  class="ie"<?php language_attributes() ?> xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8"  class="ie"<?php language_attributes() ?> xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<![endif]-->
+[ccf_form id="1258"]
+[ccf_form id="1124"]
+
+<!--[if IE 9]>
+<html id="ie9"  class="ie"<?php language_attributes() ?> xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<![endif]-->
+
+<!-- This doesn't work but i prefer to leave it here... maybe in the future the MS will support it... i hope... -->
+<!--[if IE 10]>
+<html id="ie10"  class="ie"<?php language_attributes() ?> xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<![endif]-->
+
+<!--[if gt IE 9]>
+<html class="ie"<?php language_attributes() ?> xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<![endif]-->
+
+<![if !IE]>
+<html <?php language_attributes() ?> xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<![endif]>
+
+
+
+
+<h2 style="text-transform: uppercase;"><span style="font-size: 170%;font-family: 'Yantramanav', sans-serif;letter-spacing: 10px;">Beautiful Hair</span></h2>
+
+<h2 style="text-transform: uppercase;"><span style="font-size: 170%;font-family: 'Yantramanav', sans-serif;letter-spacing: 10px;">Beautiful Hair</span></h2>
+
+<div><h3 class="slider2cl"><span class="line1">DEDICATED STYLISTS + ADVANCED EDUCATION =</h3></span><span class="line2">Beautiful Hair</span></div>
+
+<a href="https://es.salontranscripts.com/478F75C4D4B603E90E787B01/" target="_blank"><div class="vc_single_image-wrapper   vc_box_border_grey"><img width="322" height="50" src="http://54.173.197.154/beicapelli/wp-content/uploads/2014/11/baa.png" class="vc_single_image-img attachment-full" alt="baa"></div></a>
+home
+---------------
+<h4 class="MsoNormal" style="margin-top: 7.5pt; margin-right: 0in; margin-bottom: 7.5pt; margin-left: 0in;">Casco Bay TMS &ndash; Providing Treatment and Relief to Patients with Depression</h4>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;">Transcranial Magnetic Stimulation, or TMS, is one of the most technologically-advanced<strong> </strong><a href="depression-tms/treating-depression-tms.php"><span style="color: blue;">depression treatments</span></a><span style="color: #333333;">&nbsp;</span>available. It is a simple drug-free way to treat depression, anxiety and many other neurologically-based illnesses and is available at Casco Bay TMS in Portland, Maine.</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;"><a name="h.gjdgxs"></a>When medications don't provide relief or you cannot tolerate the side effects of medications, then TMS therapy may be the right treatment for you. TMS, or&nbsp;<a href="transcranialmagneticstimulation/index.php"><span style="color: blue;">Transcranial Magnetic Stimulation Therapy</span></a><span style="color: #333333;">,&nbsp;</span>is a non-invasive, FDA-cleared (for depression only at this time) brain-based outpatient treatment that has helped thousands of patients throughout the world. People are getting relief. When the brain is functioning properly people make better decisions; their relationships improve; they return to work; their lives are transformed.</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">At Casco Bay TMS our results are excellent. &nbsp;Nearly 50% of our patients who undergo TMS therapy for depression go into&nbsp;remission,<strong>&nbsp;</strong>meaning they are no longer depressed. Of all the remaining patients, while not symptom free, 75% achieve what is called, "response." &nbsp;They report feeling significantly better after completing treatment. We attribute our high success rate to our skilled staff, and the fact that we also treat anxiety as part of a person's depression (if clinically indicated).</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">To the right of your screen take a look at the picture (PET scan) of two brains. &nbsp;The brain on the left is a picture of a healthy brain. &nbsp;It has a lot of metabolic activity (the areas that are lit up) and the activity is balanced. &nbsp;You will see the image on the right is a picture of a brain with depression. &nbsp;The difference is striking. &nbsp;The depressed brain has low metabolic activity and is not balanced. &nbsp;TMS works to bring your brain into balance -- like the brain on the left. &nbsp;A balanced and healthy brain.</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">We are also successfully treating a variety of other brain-based illnesses such as migraines, seizures and others. &nbsp;Please see the section entitled, "Off Label," above on the menu bar for a list of other conditions. &nbsp;Note that these, "off-label" conditions are not FDA cleared, nor are they covered by insurance. &nbsp;However, many brain-based conditions are being treated with TMS all around the world in various hospitals, research facilities and provider offices. &nbsp;We have a unique way of analyzing these conditions using an EEG. &nbsp;We analyze that data and are able to create a "Brain Map." Your specific brain can be analyzed and treatment tailored to specific imbalances within your specific brain.</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;">TMS therapy has been used in hospitals since the 1980s and with&nbsp;<a href="neurostarTMSTherapy/index.php"><span style="color: blue;">Neurostar&reg; TMS Therapy</span></a><span style="color: #333333;">, </span>the treatment is now available right here in Portland, Maine. &nbsp;We invite you to contact us to learn more about this powerful treatment for depression and other brain imbalances.&nbsp;<span style="color: #333333;"> </span><a href="uploads/documents/PHQ-9.pdf"><span style="color: blue;">Take this questionnaire</span></a><span style="color: #333333;">&nbsp;about depression&nbsp;</span>and bring it with you for a consultation. This will help us better understand your depression and determine if you are a good fit for TMS. Call or email today to schedule a consultation and take that next step to health.</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt;">&nbsp;</p>
+<p><strong>TMS on the Daily Show: </strong><a href="http://www.cc.com/video-clips/9crtf6/the-daily-show-with-trevor-noah-neal-brennan---bringing-a-trio-of-identities-to--3-mics-" target="new">Comedian Neal Brennan discusses how TMS Therapy did more for his depression than any other treatment (clip starts at 2:30).</a></p>
+<p><img style="float: left; margin: 0 8px 0 0;" src="http://www.neurostarwebsite.com/mastercontent/images/tmsyou.png" border="0" alt="" /></p>
+<p class="MsoNormal" style="margin-bottom: .0001pt;"><a href="http://www.tmsyou.org/"><span style="color: blue;">TMS+YOU</span></a><span style="color: #333333;">&nbsp;</span>is an online community and national patient advocacy site for TMS Therapy. Those considering Transcranial Magnetic Stimulation can connect with patients who have had the treatment to answer questions, share insights, and get the latest information.</p>
+
+
+
+about us
+----------------
+<h1><span style="font-size: 11.0pt; line-height: 107%;">About Casco Bay TMS</span></h1>
+<p class="MsoNormal">Casco Bay TMS is dedicated to treating your depression and anxiety through Transcranial Magnetic Stimulation (TMS) treatments. Our goal is for you to leave our care feeling like your best self.&nbsp;</p>
+<p class="MsoNormal">Our office offers the following:</p>
+<p class="MsoNormalCxSpMiddle" style="margin-top: 0in; margin-right: 0in; margin-bottom: .0001pt; margin-left: .5in; mso-add-space: auto; text-indent: -.25in; mso-list: l0 level1 lfo1;"><!--[if !supportLists]--><span>?<span style="font-stretch: normal; font-size: 7pt; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]-->Educated, compassionate and caring staff</p>
+<p class="MsoNormalCxSpMiddle" style="margin-top: 0in; margin-right: 0in; margin-bottom: .0001pt; margin-left: .5in; mso-add-space: auto; text-indent: -.25in; mso-list: l0 level1 lfo1;"><!--[if !supportLists]--><span>?<span style="font-stretch: normal; font-size: 7pt; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span></span><!--[endif]-->Tracking progress before and during treatment</p>
+<p class="MsoNormalCxSpMiddle" style="margin-left: .5in; mso-add-space: auto; text-indent: -.25in; mso-list: l0 level1 lfo1;"><!--[if !supportLists]--><span>?<span style="font-stretch: normal; font-size: 7pt; font-family: 'Times New Roman';">&nbsp;&nbsp;&nbsp;&nbsp; </span></span>Tools to analyze your unique brain</p>
+<p class="MsoNormal">Neuroscience is a burgeoning field and the concept of neuroplasticity an exciting phenomena. &nbsp;Our brains, once thought to be fixed, are in fact changeable (plastic). &nbsp;We can change the neurofunctioning at the cellular level and successfully treat what was once thought as a permanent condition. &nbsp;Depression and other brain diseases can be remedied. &nbsp;</p>
+<p class="MsoNormal">We are passionate about this work and are dedicated to helping you lift the cloud that has been part of your life for so long.<a style="background-color: #ffffff;" name="h.gjdgxs">&nbsp; &nbsp;</a>TMS transforms lives and we consider ourselves privileged to walk with you on your path to health. &nbsp;</p>

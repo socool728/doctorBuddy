@@ -1,0 +1,75 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="">
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        
+            <?php if(Session::has('flash_msg')){?>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="alert alert-success" ><?php echo Session::get('flash_msg');?></div>
+                </div>                               
+            <?php } ?>
+        
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">                   
+                    <h3 class="pagehd">Customers</h3>                   
+                </div>                
+                <div class="x_content">
+                    <table id="example" class="table table-striped responsive-utilities jambo_table">
+                        <thead>
+                            <tr class="headings">
+                                <th>SL No.</th>    
+                                <th>Customer Email</th>
+                                <th>Customer Name</th>                                
+                                <th>Added Date</th>
+                                <th>Report View</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php 
+                            $i = 0;
+                            foreach($customers as $customer){ 
+                            ?>
+
+                                <tr class="even pointer">
+                                    <td class=" "><?php echo ++$i?></td>
+                                    <td class=" "><?php echo $customer->customer_email_id?></td>
+                                    <td class=" "><?php echo $customer->customer_fname." ".$customer->customer_lname; ?></td>   
+                                    <td class=" "><?php echo $customer->created_at?> </td>  
+                                    
+                                    <td>
+                                        <a href="<?php echo asset('admin/casefiles/customer/'.$customer->customer_id)?>">
+                                            <button type="button" class="btn btn-primary">View case files</button>
+                                        </a>            
+                                    </td>
+                                    <td>
+                                     <button delete_id ="<?php echo e($customer->customer_id); ?>" type="button" class="btn btn-delete">Delete</button>  
+                                    </td>
+                                   
+                                </tr>   
+                            <?php } ?>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+    </div>
+</div>
+<script>
+ var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+<script src="<?php echo asset('js/admin/list_customer.js'); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.adminlayout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

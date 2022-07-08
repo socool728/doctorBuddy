@@ -1,0 +1,136 @@
+<?php
+
+$counselorQry ="SELECT 
+         C.counselors_id,   
+         C.counselors_firstname,
+         C.counselors_middlename,
+         C.counselors_lastname,
+         C.counselors_photo,
+         C.counselors_designation        	
+         FROM `counselors` AS C WHERE C.counselors_status =1  AND C.is_deleted =0 ORDER BY RAND() LIMIT 9";
+$counselors = DB::select($counselorQry); 
+
+$hpQuery ="SELECT 
+    HP.healthcare_professional_id,
+    HP.healthcare_professional_first_name,
+    HP.healthcare_professional_middle_name,
+    HP.healthcare_professional_last_name,
+    HP.healthcare_designation,
+    HPD.healthcare_professional_image 
+    FROM `healthcare_professional` AS HP LEFT JOIN `healthcare_professional_details` AS HPD
+    ON HP.healthcare_professional_id = HPD.healthcare_professional_id
+    WHERE HP.healthcare_professional_status = 1 AND HP.is_deleted =0 ORDER BY RAND() LIMIT 9";
+$healthcare_professionals = DB::select($hpQuery); 
+
+
+
+?>
+
+
+<div class="col-lg-6 col-sm-12  col-xs-12 left common-right-area">
+    
+     <!--Start:Counselor Section-->
+    <div class="col-lg-6 col-sm-12 col-xs-12 no-pad counselor-box left">
+            <div class="col-lg-12 title-box cousi-box">
+                <h3><a href="<?php echo asset('counselor/listing')?>">Our Counselors</a></h3>
+                    <p class="F16">Chat with our counselors for getting
+the best support!</p>
+            </div>
+            <?php
+            if(count($counselors)>0){                 
+            foreach($counselors as $counselor){  
+                $nameArr = array();
+                $nameArr[] = $counselor->counselors_firstname;
+                if(!empty($counselor->counselors_middlename)){
+                    $nameArr[] = $counselor->counselors_middlename;
+                }
+                $nameArr[] = $counselor->counselors_lastname;
+                ?>
+        
+                <div class="box col-sm-6 col-lg-12">
+                <div class="col-lg-4 col-sm-4 col-xs-12 text-center">
+                    <a href="<?php echo asset('counselor/details').'/'.$counselor->counselors_id ?>">
+                    <?php if ($counselor->counselors_photo !='') : ?>
+                        <img src="<?php echo asset('uploads/counselor/icon/'.$counselor->counselors_photo);?>" class="img-circle m-t-xs img-responsive" alt="image" width="68" height="68">
+                    <?php else : ?>
+                        <img src="<?php echo asset('images/c1.png')?>" class="img-circle m-t-xs img-responsive" alt="image">
+                    <?php endif ;?> 
+                    </a>    
+                </div>
+                <div class="col-lg-8 col-sm-8 col-xs-12">
+
+                <div class="textcenter">
+                    <p class="name">
+                        <a href="<?php echo asset('counselor/details').'/'.$counselor->counselors_id ?>"><?php echo ucwords(strtolower(implode(" ",$nameArr))) ?></a>
+                    </p>
+<!--                    <p class="qualif"><small>Msc Psycology</small></p>-->
+                    <p class="export"><strong><?php echo $counselor->counselors_designation; ?></strong></p>
+<!--                    <p class="chat-icon">
+                        <a href="#">Chat Now <i class="fa"><img src="<?php //echo asset('images/chat-small.png')?>" class="shake animated" alt="Chat Small"></i></a>
+                    </p>-->
+                </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <?php }} ?>
+
+    </div>
+     <!--Start:Counselor Section-->
+     
+     
+    <!--Start:Provider Section-->
+    <div class="col-lg-6 col-sm-12 col-xs-12 no-pad provider-box left">
+        <div class="col-lg-12 title-box provi-box">
+            <h3><a href="<?php echo asset('healthcare_professional/listing')?>">Our Providers</a></h3>
+        <p class="F16">Send your questions and medical reports
+        to our providers directly.</p>
+        </div>
+        <?php
+        $i=1; 
+        if(count($healthcare_professionals)>0){ 
+            foreach($healthcare_professionals as $healthcare_professional){
+            if($i%2 ==0){
+                $pClass ="p-box1";
+            }else{
+                $pClass ="p-box";
+            }    
+            $nameArr = array();
+            $nameArr[] = $healthcare_professional->healthcare_professional_first_name;
+            if(!empty($healthcare_professional->healthcare_professional_middle_name)){
+                $nameArr[] = $healthcare_professional->healthcare_professional_middle_name;
+            }
+            $nameArr[] = $healthcare_professional->healthcare_professional_last_name;
+            
+        ?>
+            <div class="box col-sm-6 col-lg-12 <?php echo $pClass ?>">
+            <div class="col-lg-4 col-sm-4 col-xs-12 text-center">
+                <a href="<?php echo asset('healthcare_professional/details').'/'.$healthcare_professional->healthcare_professional_id ?>">
+                <?php if ($healthcare_professional->healthcare_professional_image !='') : ?>
+                <img src="<?php echo asset('uploads/healthcare_professional/icon/'.$healthcare_professional->healthcare_professional_image);?>" class="img-circle m-t-xs img-responsive" alt="image" width="68" height="68">
+            <?php else : ?>
+                <img src="<?php echo asset('images/c1.png')?>" class="img-circle m-t-xs img-responsive" alt="image">
+            <?php endif ;?>
+
+                </a>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-xs-12">
+
+               <div class="textcenter">
+<!--                <img src="<?php //echo asset('images/plogo1.png')?>" alt="provider-logo">-->
+                <p class="name">
+                    <a href="<?php echo asset('healthcare_professional/details').'/'.$healthcare_professional->healthcare_professional_id ?>"><?php echo ucwords(strtolower(implode(" ",$nameArr))) ?></a>
+                </p>
+                <p class="qualif"><strong><?php echo $healthcare_professional->healthcare_designation; ?></strong></p>
+<!--                <p class="export">11 years experience</p>
+                <p class="message"><a href="#">Send message <i class="fa"><img src="<?php //echo asset('images/mail-small-icon.png')?>" alt="Message"></i></a></p>-->
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            </div>
+        <?php $i++; }} ?>
+
+    </div>
+    <!--End:Provider Section-->
+</div>

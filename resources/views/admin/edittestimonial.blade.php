@@ -1,0 +1,153 @@
+@extends('layouts.adminlayout')
+@section('content')
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea',
+              height: 240,
+              theme: 'modern',
+  plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools'
+  ],
+  toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  toolbar2: 'print preview media | forecolor backcolor emoticons',
+  image_advtab: true,
+  templates: [
+    { title: 'Test template 1', content: 'Test 1' },
+    { title: 'Test template 2', content: 'Test 2' }
+  ],
+  content_css: [
+    '../css/custom_extra.css'
+  ]
+  }
+              );</script>
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Edit Testimonial</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Edit Testimonial <small></small></h2>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="x_content">
+                    <br><br>
+                    <form action="javascript:edit_testimonial();" class="form-horizontal form-label-left" novalidate  method="post"  id="edit_testimonial_form">
+                        
+                        <div id="message"  class="hide item form-group">
+                            <div id="message-text"></div>
+                        </div>
+                        
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Testimonial by<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="user_name" class="form-control col-md-7 col-xs-12"  name="user_name" title="User Name" required="required" type="text" value="<?php echo $data['testimonialObj']->user_name ?>">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Location<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="user_location" class="form-control col-md-7 col-xs-12"  name="user_location" title="User Location" required="required" type="text" value="<?php echo $data['testimonialObj']->user_location ?>">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Content Description <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <textarea data-parsley-id="3648" id="testimonial_content" name="testimonial_content" ><?php echo $data['testimonialObj']->testimonial_content;?></textarea>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Image  <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <?php if($data['testimonialObj']->image != ''){?>
+                                <div id="uploadedfile">
+                                <a target="_blank" href="<?php echo $data['site_url'].'/uploads/testimonial/'.$data['testimonialObj']->image; ?> "><img src="<?php echo $data['site_url'].'/uploads/testimonial/'.$data['testimonialObj']->image ?>" width="100px" height="100px"/></a>
+                                <a onclick="delete_file('<?php echo $data['testimonialObj']->testimonial_id ?>')" href="javascript:void(0);">
+<img src="<?php echo asset('images/delete.png'); ?>">
+                                </a>  
+                                </div>
+                                <?php }?>
+                                
+                                <div id="files_upload_area" class="files" <?php if($data['testimonialObj']->image != ''){?> style="display: none;"<?php }?>>
+                                <div class="col-lg-6 no-padding">
+                                     <span class="btn btn-success fileinput-button">
+                                         <span  class="btn btn-success fileinput-button">
+                                             <label id="uploadbtn"><i class="glyphicon glyphicon-plus"></i>BROWSE</label><label id="uploadnxtbtn" style="display:none;">Upload </label>
+                                             <input id="fileupload_document" type="file" name="files"  /></span>  
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="upfiles_document" class="files"></div>
+                             <input type="hidden" name="image" id="image" value="<?php echo $data['testimonialObj']->image; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Display Order <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select class="form-control" name="display_order">
+                                  <?php for($i=1;$i<50;$i++){ ?>
+                                  <option value="<?php echo $i;?>" <?php if($data['testimonialObj']->display_order == $i){?>selected <?php } ?> ><?php echo $i;?></option> <?php } ?>
+                              </select>
+                              <ul id="parsley-id-3638" class="parsley-errors-list"></ul>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Status <span class="required">*</span>
+                             </label>
+                             <div class="col-md-6 col-sm-6 col-xs-12">
+                                 <div class="radio">
+                                     <label>
+                                         <input <?php if($data['testimonialObj']->testimonial_status == 1){?>checked="checked" <?php } ?>value="1" id="testimonial_status" name="testimonial_status" type="radio"> Enable</label><label>
+                                         <input <?php if($data['testimonialObj']->testimonial_status == 0){?>checked="checked" <?php } ?> value="0" id="testimonial_status" name="testimonial_status" type="radio"> Disable</label>
+                                 </div>
+
+                             </div>
+                         </div>
+                        
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-3">
+                                <a href="<?php echo $data['site_url'] ?>/admin/testimonial"><button type="button" class="btn btn-primary" name="cancel" id="cancel">Cancel</button></a>
+                                <button type="submit" class="btn btn-success" name="edit" id="edit" href="edit_testimonial">Update</button>
+                                
+                                <input type="hidden" name="form_submit" value="save">
+                                <input type="hidden" name="testimonial_id" id="testimonial_id" value="<?php echo $data['testimonialObj']->testimonial_id ?>">
+                                
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+    </div>
+</div>
+<script>
+ var SITE_URL = "<?php echo $data['site_url'] ?>";
+</script>
+<!-- Ajax file uploader-->
+<link rel="stylesheet" href="<?php echo asset('css/jquery.fileupload.css');?>" />
+<script src="<?php echo asset('js/vendor/jquery.ui.widget.js');?>"></script>
+<script src="<?php echo asset('js/jquery.iframe-transport.js');?>"></script>
+<script src="<?php echo asset('js/jquery.fileupload.js');?>"></script>
+<script src="<?php echo asset('js/admin/edit_testimonial.js'); ?>"></script>
+
+@stop

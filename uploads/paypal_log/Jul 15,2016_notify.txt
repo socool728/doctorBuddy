@@ -1,0 +1,99 @@
+
+
+========================
+ New transaction
+========================Array
+(
+    [mc_gross] => 1.00
+    [protection_eligibility] => Eligible
+    [address_status] => confirmed
+    [payer_id] => 3BZMMM64ACYVG
+    [address_street] => 2704 Avitation Blvd
+6
+    [payment_date] => 22:47:44 Jul 14, 2016 PDT
+    [payment_status] => Completed
+    [charset] => windows-1252
+    [address_zip] => 90278
+    [first_name] => Betson
+    [mc_fee] => 0.33
+    [address_country_code] => US
+    [address_name] => Betson Thomas
+    [notify_version] => 3.8
+    [custom] => casefileToHPId=123
+    [payer_status] => unverified
+    [business] => sebastianvayalinkal@gmail.com
+    [address_country] => United States
+    [address_city] => Redondo Beach
+    [quantity] => 1
+    [verify_sign] => A1gZCGgaxq1yNJiDKaGm6NiQJNbiAAFOLQaLalG7GoG5wJB4rEafIgPN
+    [payer_email] => betson@gmail.com
+    [txn_id] => 95K92381R79107600
+    [payment_type] => instant
+    [last_name] => Thomas
+    [address_state] => CA
+    [receiver_email] => sebastianvayalinkal@gmail.com
+    [payment_fee] => 0.33
+    [receiver_id] => LP4KRTJ645W4E
+    [txn_type] => web_accept
+    [item_name] => Provider Fee
+    [mc_currency] => USD
+    [item_number] => 1
+    [residence_country] => US
+    [receipt_id] => 4654-8456-3994-9329
+    [transaction_subject] => 
+    [payment_gross] => 1.00
+    [ipn_track_id] => 114cd4ac83b9a
+)
+
+Transaction is successful,Transaction ID:95K92381R79107600 Amount:1.00 USD
+
+========================
+ New transaction
+========================Array
+(
+    [mc_gross] => -1.00
+    [protection_eligibility] => Eligible
+    [payer_id] => 3BZMMM64ACYVG
+    [address_street] => 2704 Avitation Blvd
+6
+    [payment_date] => 22:51:21 Jul 14, 2016 PDT
+    [payment_status] => Refunded
+    [charset] => windows-1252
+    [address_zip] => 90278
+    [first_name] => Betson
+    [mc_fee] => -0.33
+    [address_country_code] => US
+    [address_name] => Betson Thomas
+    [notify_version] => 3.8
+    [reason_code] => refund
+    [custom] => casefileToHPId=123
+    [business] => sebastianvayalinkal@gmail.com
+    [address_country] => United States
+    [address_city] => Redondo Beach
+    [verify_sign] => AFklBJysTmdF3BiFgSMoVeAB0YW7AgFQSssgjbny2e.K8pfBuKPC6txo
+    [payer_email] => betson@gmail.com
+    [parent_txn_id] => 95K92381R79107600
+    [txn_id] => 1FH76815JM2117413
+    [payment_type] => instant
+    [last_name] => Thomas
+    [address_state] => CA
+    [receiver_email] => sebastianvayalinkal@gmail.com
+    [payment_fee] => -0.33
+    [shipping_discount] => 0.00
+    [receiver_id] => LP4KRTJ645W4E
+    [insurance_amount] => 0.00
+    [item_name] => Provider Fee
+    [discount] => 0.00
+    [mc_currency] => USD
+    [item_number] => 1
+    [residence_country] => US
+    [receipt_id] => 4654-8456-3994-9329
+    [handling_amount] => 0.00
+    [shipping_method] => Default
+    [transaction_subject] => 
+    [payment_gross] => -1.00
+    [shipping] => 0.00
+    [ipn_track_id] => 531a606d6caec
+)
+
+Some error has happend.Payment status : Refunded
